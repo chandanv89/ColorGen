@@ -1,7 +1,8 @@
 /* selectText.js by @jamiebrittain */
-!function(e){
+(function(e){
    e.fn.selectText=function(){
       var e=this[0];
+      console.log(e);
       if(document.body.createTextRange){
          var t=document.body.createTextRange();
          t.moveToElementText(e),t.select()
@@ -13,7 +14,7 @@
          n.addRange(t)
       }
    }
-}(jQuery);
+})(jQuery);
 
 /* colourBrightness.js by @jamiebrittain */
 (function(e){
@@ -52,9 +53,8 @@ var generateColor = function(){
 }
 
 var updateColor = function(color){
-   $("#color p").html(color);
-   $("#canvas").css('backgroundColor',color)
-   $("#canvas").colourBrightness();
+   $("#color p").html(color).css('fontFamily', 'Consolas, Monospace').css('fontSize', '48px');
+   $("#canvas").css('backgroundColor',color).colourBrightness();
 }
 
 window.onload = function(){
@@ -64,8 +64,12 @@ window.onload = function(){
    
    $("body").on('keypress', function(e){
       if("32" == e.keyCode){
-         
-         updateColor(generateColor());
+         var color = generateColor();
+         updateColor(color);
       }
+   });
+
+   $("#color").on("click", function(){
+      $(this).selectText();
    });
 }
