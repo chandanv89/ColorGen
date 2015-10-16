@@ -1,20 +1,3 @@
-/* selectText.js by @jamiebrittain */
-(function(e){
-   e.fn.selectText=function(){
-      var e=this[0];
-      console.log(e);
-      if(document.body.createTextRange){
-         var t=document.body.createTextRange();
-         t.moveToElementText(e),t.select()
-      }else if(window.getSelection){
-         var n=window.getSelection(),
-         t=document.createRange();
-         t.selectNodeContents(e),
-         n.removeAllRanges(),
-         n.addRange(t)
-      }
-   }
-})(jQuery);
 
 /* colourBrightness.js by @jamiebrittain */
 (function(e){
@@ -40,27 +23,51 @@
    }
 })(jQuery);
 
+/* selectText.js by @jamiebrittain */
+!function(e){
+   e.fn.selectText=function(){
+      var e=this[0];
+      if(document.body.createTextRange){
+         var t=document.body.createTextRange();
+         t.moveToElementText(e),t.select()
+      }else if(window.getSelection){
+         var n=window.getSelection(),
+         t=document.createRange();
+         t.selectNodeContents(e),
+         n.removeAllRanges(),
+         n.addRange(t)
+      }
+   }
+}(jQuery);
+
 var generateColor = function(){
    var hexChars = "0123456789ABCDEF";
    var hexStr = "#";
       
-   for(var i=0; i<6; i++){
+   for(var i=0; i<6; i++)
       hexStr += hexChars[Math.ceil(Math.random()*1000)%16];
-   }
 
-   console.log(hexStr);
    return hexStr;
+}
+
+var updateUrl = function(color){
+   var url = window.location.href || "";
+   
+   if(url.search(/#/) != '-1')
+      url = url.replace(url.substr(url.search(/#/),url.length), color);
+   //window.location.replace('.html', 'index.html/' + url);
 }
 
 var updateColor = function(color){
    $("#color p").html(color).css('fontFamily', 'Consolas, Monospace').css('fontSize', '48px');
    $("#canvas").css('backgroundColor',color).colourBrightness();
+      
+   updateUrl(color);
 }
 
 window.onload = function(){
    document.body.style.overflow = "hidden";
-   $("body").css('height', $(window).height());
-   $("body").css('width', $(window).width());
+   $("body").css('height', $(window).height()).css('width', $(window).width());
    
    $("body").on('keypress', function(e){
       if("32" == e.keyCode){
@@ -69,7 +76,7 @@ window.onload = function(){
       }
    });
 
-   $("#color").on("click", function(){
+   $("#color").on("click", function(e){
       $(this).selectText();
    });
 }
