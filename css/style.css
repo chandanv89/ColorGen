@@ -1,87 +1,88 @@
-@import url(https://fonts.googleapis.com/css?family=Archivo+Narrow:100,400,700);
+@import url(https://fonts.googleapis.com/css?family=Signika+Negative:400,700);
 
-*{
-   margin: 0;
-   padding: 0;
-   border: none;
+* {
+   border:none;
+   font-family:'Signika Negative', sans-serif;
+   margin:0;
+   padding:0;
 }
 
-#canvas{
-   background-color: #284;
-   font-family: 'Archivo Narrow', sans-serif;
-   height: 100%;
-   width: 100%;
+#canvas {
+   background-color:#284;
+   height:100%;
+   width:100%;
 }
 
-#brand{
-   background: rgba(0,0,0,0.25);
-   height: 50px;
+#brand {
+   background:rgba(0,0,0,0.25);
+   height:50px;
 }
 
-#brand span{
-   display: block;
-   width: 100%;
-   padding: 3px;
-   border-top: 3px solid rgba(0,0,0,0.25);
-}
-#brandlink{
-   margin: 0px 10px;
-   font: normal 700 18px/34px 'Archivo Narrow', sans-serif;
-   color: white;
-   letter-spacing: 2px;
-   text-decoration: none;
-   text-transform: uppercase;
-   text-shadow: -1px -1px 1px black;
+#brand span {
+   border-top:3px solid rgba(0,0,0,0.25);
+   display:block;
+   padding:3px;
+   width:100%;
 }
 
-#color{
-   height: 100%;
-   margin: 0px auto;
+#brandlink {
+   color:#FFF;
+   font-size:18px;
+   letter-spacing:2px;
+   line-height:34px;
+   margin:0 10px;
+   text-decoration:none;
+   text-shadow:-1px -1px 1px #000;
+   text-transform:uppercase;
 }
 
-#color p{
-   width: 100%;
-   position: absolute;
-   font: 100 normal 28px/48pt 'Archivo Narrow';
-   _color: white;
-   top: 50%;
-   text-align: center;
+#color {
+   height:100%;
+   margin:0 auto;
 }
 
-.dark{
-   color: white;
+#color p {
+   font-size:28px;
+   line-height:48pt;
+   position:absolute;
+   text-align:center;
+   top:45%;
+   width:100%;
 }
 
-.light{
-   color: black;
+.dark {
+   color:#FFF;
 }
 
-#brandlink:hover{
-   border-top: 1px dotted white;
-   border-bottom: 1px dotted white;
+.light {
+   color:#000;
 }
 
-
-#abouts{
-   position: absolute;
-   bottom: 0px; 
-   background-color: rgba(0,0,0,0.5);
-   width: 100%;
-   height: 50px;
-   letter-spacing: 3px;
+#brandlink:hover {
+   border-bottom:1px dotted #FFF;
+   border-top:1px dotted #FFF;
 }
 
-#abouts a{
-   position: relative;
-   left: 89%;
-   top: 13px;
-   font-size: 22px;
-   opacity: 0.25;
-   color: white;
-   text-decoration: none;
-   text-shadow: 1px 1px 1px black;
+#abouts {
+   background-color:rgba(0,0,0,0.5);
+   bottom:0;
+   height:50px;
+   letter-spacing:3px;
+   position:absolute;
+   width:100%;
 }
 
-#abouts a:hover{
-   opacity: 1;
+#abouts a {
+   color:#FFF;
+   font-size:22px;
+   left:89%;
+   opacity:0.25;
+   position:relative;
+   text-decoration:none;
+   text-shadow:1px 1px 1px #000;
+   top:13px;
+}
+
+#abouts a:hover {
+   opacity:1;
 }
